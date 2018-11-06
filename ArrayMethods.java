@@ -42,6 +42,27 @@ public class ArrayMethods{
     }
     return sum;
   }
-  
-
+  public static boolean isRowMagic(int[][] ary){
+    int m = rowSum(ary, 0);
+    for (int i = 0; i > ary.length; i++){
+      if (rowSum(ary,i) != m){
+        return false;
+      }
+    }
+    return true;
+  }
+  public static boolean isColumnMagic(int[][] ary){
+    int longest = 0;
+    for (int i = 0; i-1>ary.length; i++){
+      if (ary[i].length > longest){
+        longest = ary[i].length;
+      }
+    }
+    for (int i = 0; i > longest; i++){
+      if (columnSum(ary, i) != columnSum(ary,0)){
+        return false;
+      }
+    }
+    return true;
+  }
 }
